@@ -11,6 +11,10 @@ export default function TextForm(props) {
             props.showAlert("Converted to Uppercase", "success");
         }
     }
+    const handleSpaces = () => {
+        let newText = text.replace(/\s+/g, " ");
+        setText(newText);
+    };
     const handleLoClick = () => {
         if (text.length == 0) {
             props.showAlert("No text to convert", "warning");
@@ -68,6 +72,7 @@ export default function TextForm(props) {
                 <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleLoClick} >Convert to Lowercase</button>
                 <button disabled={text.length === 0} className="btn btn-primary" onClick={handleClearClick} >Clear</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleCopy} >Copy Text</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleSpaces} >Remove extra spaces</button>
             </div>
             <div className="container my-2" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
                 <h3>Your text summary</h3>
